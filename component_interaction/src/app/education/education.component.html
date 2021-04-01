@@ -1,0 +1,39 @@
+<div *ngIf="!complete" class="card">
+    <h4 class="card-header">Register</h4>
+    <div class="card-body">
+        <h4 class="card-header">Education Details</h4>
+        <form [formGroup]="eduForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="collegeName">College Name</label>
+                <input type="text" formControlName="collegeName" class="form-control" />
+                <div *ngIf="eduForm.invalid && submitted">
+                    <div class="error-block" *ngIf="eduForm.controls['collegeName'].hasError('required')">College Name
+                        is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="passesdOut">Year of Completion</label>
+                <input type="text" formControlName="passesdOut" class="form-control" />
+                <div *ngIf="eduForm.invalid && submitted">
+                    <div class="error-block" *ngIf="eduForm.controls['passesdOut'].hasError('required')">Passed out year
+                        is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="score">CGPA</label>
+                <input type="text" formControlName="score" class="form-control" />
+                <div *ngIf="eduForm.invalid && submitted">
+                    <div class="error-block" *ngIf="eduForm.controls['score'].hasError('required')">CGPA is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary">
+                    Next
+                </button>
+                <a class="btn btn-link">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

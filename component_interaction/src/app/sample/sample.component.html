@@ -1,0 +1,19 @@
+<hr>
+Reactive Forms
+<hr>
+<br>
+
+<form [formGroup]="validatorForm" (ngSubmit)="onSubmit(validatorForm)">
+    <input formControlName="age" placeholder="Your age">
+  
+    
+    
+    <div  *ngIf="validatorForm.controls.age.hasError('age')">
+        <sup>*</sup>Age should not be more than 18 years
+      </div>
+    
+  
+    <button type="submit" [disabled]="validatorForm.invalid">
+      Send
+    </button>
+  </form>
